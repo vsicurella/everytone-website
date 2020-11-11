@@ -5,91 +5,175 @@ body {
     left: 0;
     margin: 0px;
     position: absolute;
-    display: flex;
-    place-content: space-evenly;
-    background-color: #3c3c3c;
+    background-color: #666;
     font-family: sans-serif;
     font-weight: 500;
     font-size: 150%;
 }
 
 img {
-    margin: 5px;
-    width: 80%;
+    width: 100%;
+    object-fit: scale-down;
 }
 
-.container {
+.section {
     display: block;
+    top: 0;
+}
+
+.sticky {
+    position: sticky;
 }
 
 .flex {
     display: flex;
 }
 
-.flex.container {
+.column {
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
 }
 
-#root {
-    background-color: #888888;
-    color: #dddddd; 
-    height: 100%;   
-    width: 75%;
-    text-align: center;
+#sitemap-section {
+    width: 25%;
+    max-width: 320px;
+    background: #444;
+    float: left;
 }
 
-#hero-container {
-    background-color: #606099;
+#sitemap-container {
     width: 100%;
-    padding: 20px 0px 20px 0px;
-    justify-content: space-evenly;
-}
-
-.navbar {
-    overflow: hidden;
-    background-color: #606099;
-    justify-content: space-evenly;
-    height: 10%;
-    width: 100%;
-    margin: 0px 5px 0px 5px;
-}
-
-.navbar-link {
-    text-decoration: none;
-    color: inherit;
-    padding: 10px;
-    width: -webkit-fill-available;
     text-align: center;
-}
-
-.navbar-link:hover {
-    background-color: #6666aa;
-}
-
-.sticky {
-    position: fixed;
+    justify-content: flex-start;
     top: 0;
-    height: auto;
 }
 
-.figure {
-    font-size: smaller;
-    text-decoration: none;
+#logo {
+    width: 75%;
+    margin: 10px 0px 10px 0px;
 }
 
-#content-container {
-    color: #333;
+.column > a {
+    margin: 5px 0px;
+    padding: 10px 0px;
+    width: 100%;
+    font-size: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    background-color:#555;
+    text-decoration-line: none;
+    color: #111;
 }
 
-footer {
-    background-color: #666666;
-    color: black;
-    font-size: smaller;
+.column > a:visited {
+    color: #111;
+}
+
+.column > a:active {
+    color: #333
+}
+
+
+#site-body-container {
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #333;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #777;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7a7a7a;
+}
+
+.product {
+    display: none;
+}
+
+.content.active {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
     text-align: center;
 }
 
-#update-text {
-    font-style: italic;
+.body.content {
+    font-size: 1.5vh;
+    margin: 0px 2vh;
+}
+
+.body > p {
+    text-align: justify;
+    justify-self: flex-start;
+}
+
+.body > ul,
+.body > ol {
+    margin: 5px 0px;
+    padding: 0px 20px;
+}
+
+.hero {
+    margin: 10px 0px;
+}
+
+#product-sidebar-section {
+    max-width: 320px;
+    background: #444;
+    float: right;
+}
+
+#product-sidebar-container {
+    width: 100%;
+    text-align: center;
+    justify-content: flex-start;
+    top: 0;
+}
+
+.sidebar > h1 {
+    font-size: 2vw;   
+}
+
+.sidebar > h2 {
+    font-size: 1vw;
+    align-self: flex-start;
+    text-indent: 1vw;
+}
+
+.download.flex {
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.download.btn {
+    width: auto;
+    max-width: 25%;
+    place-self: center;
+}
+
+.download.btn:hover {
+    background:#888;
+    padding: 10px;
+}
+
+a.github-link {
+    background: inherit;
+    width: 50%;
+    font-weight: 600;
+    margin-top: 2vh;
+}
+
+a.github-link:hover {
+    background:#888;
+    padding: 10px;
 }

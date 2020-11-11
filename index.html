@@ -9,34 +9,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div id="root" class="container">
-        <div id="floating-header" class="flex container floating">
-            <div id="hero-container" class="flex container">
-                <span>EVERYTONE</span>
-            </div>
-            <div id="header-navbar" class="flex navbar">
-                <a id="navbar-about" href="#" class="navbar-link">About</a>
-                <a id="navbar-software" href="#" class="navbar-link">Software</a>
-                <a id="navbar-blog" href="#" class="navbar-link">Blog</a>
-                <a id="navbar-support" href="#" class="navbar-link">Support</a>
-                <a id="navbar-links" href="#" class="navbar-link">Links</a>
-                <a id="navbar-contact" href="#" class="navbar-link">Contact</a>
-            </div>
-            <div id="software-menu" class="flex container navbar-hidden">
-                <a href="#" class="navbar-link">SuperVirtualKeyboard</a>
+    <div id="root" class="flex">
+        <div id="sitemap-section" class="section">
+            <div id="sitemap-container" class="sticky flex column">
+                <img src="./assets/everytone-logo-1.png" id="logo" class="image">
+                <a href="#" id="svk-btn" class="btn sitemap-btn">SuperVirtualKeyboard</a>
+                <a href="#" id="about-btn" class="btn sitemap-btn">About</a>
             </div>
         </div>
-        <div id="content-container" class="flex container">
-            <h2>Everytone presents...</h2>
-            <h1>SuperVirtualKeyboard</h1>
-            <img src="svk-hero0.gif">
-            <br>
-            <a href="#" class="figure">Click here to go to learn more and download!</a>
+        <div id="site-body-section" class="section">
+            <div id="site-body-container" class="flex column">
+                <div id="svk-body-overview" class="body content active">
+                    <img class="hero" src="./assets/svk-hero0.gif">
+                    <h1>SuperVirtualKeyboard</h1>
+                    <h2>Overview</h2>
+                    <p>
+                        SuperVirtualKeyboard is an interactive, customizable virtual MIDI keyboard you can use in your DAW. It particularly 
+                        aims to aid composers and producers working with scales that diverge from the standard piano layout. 
+                        This pattern is found in many places within most digital music applications, but it can make difficult when 
+                        working in different systems, whether it be stanard tuning or microtonal.
+                    </p>
+                    <p>
+                        For now, <strong> SuperVirtualKeyboard does not generate MIDI pitchbend data</strong>, so you will have to use a synthesizer
+                        that has built-in tuning features. It may be added in the future, but due to the varying limitations of multichannel pitchbend 
+                        support, it's beyond the scope of this project.
+                    </p>
+                </div> <!--overview end-->
+                <div id="svk-body-features" class="body content">
+                    <h2>Features</h2>
+                    <ul><li> Select a scale from a large selection of mode presets then click the keys on the keyboard to play. </li></ul>
+                    <ul>
+                        <li>Set custom colors for keys by scale degree, key layer (like all white vs all black), or individual keys, which can be saved and reloaded with your scale. Click "Edit Colors", select the color, and then click the key you want to change the color of.
+                        <ul>
+                            <li>No key modifiers will paint all keys of the same scale degree
+                            <li>Shift will paint all belonging to the same layer
+                            <li>Control will only paint the clicked key.
+                            <li>Right-clicking, with respective modifiers, resets the key(s) to a default color.
+                        </ul>
+                    </ul>
+                    <ul>
+                        <li>If you don't have a midi controller, here are some features you can take advantage of:
+                        <ul>
+                            <li>Hold "Shift" to hold down notes, "Alt" for "Mono Legato" mode, and "Space" to retrigger held notes.
+                            <li>Use "Up" & "Down" keys on held notes to transpose by one interval, or "Left" & "Right" keys to transpose by one modal step. 
+                        </ul>
+                    </ul>
+                    <ul>
+                        <li>Save your layout as a text file that Reaper can load as "MIDI Note Names" so that you can see the layout in Reaper's piano roll!    
+                        <ul>
+                            <li>View and Edit information about your mode in the "View Mode Info" dialog in the "Edit" menu
+                            <li>Save and load your custom scales and midi mappings!
+                        </ul>
+                    </ul>
+                    <ul>
+                        <li>Use the mapping function to remap your midi piano keyboard to a microtonal scale. To enable, open the dropdown box on the top left and choose "Auto Mapping". This will reveal some more controls, as well as a mapping style.
+                        <ul>
+                            <li>The first scale selection box on the right represents what scale you're mapping from, the input scale, which should be your hardware MIDI keyboard's layout. This will probably be the standard layout, Meantone[7] 12. The second scale under it is the output scale, the scale you will be remapping to.
+                            <li>The "Mode to Mode" style will map your MIDI keyboard's white keys to the white keys of the selected scale and will approxmate closest degrees on the chromatic keys.
+                            <li>The "Mode to Scale" style will map your full chromatic MIDI keyboard to the selected scale's white keys. This if useful if your output scale's mode size is equal to your input scale's size (the MIDI keyboard's scale size, which is usually 12).
+                            <ul>
+                                <li>For example, Meantone[12] 31 (in 31-EDO) works great on a standard midi keyboard, which creates a chromatic layout from 31-EDO.
+                                <li>Superpyth[12] 22 and Pajara[12] 22 are other interesting ones to play around with in this mode.
+                            </ul>
+                            <li>The "by Layers" style will allow you to map a certain layer of keys (layer 1 = diatonic white keys, order 2 = pentatonic black keys) to a certain layer of keys in the output scale.
+                            <ul>
+                                <li>An example would be making a the scale pattern "7 7 7 7 7" which is 35-EDO, and then mapping your input white keys the 7-EDO output white keys, and your black keys to one of the 5-EDO subsets.
+                            </ul>
+                        </ul>
+                    </ul>
+                    <h2>New in version 0.03a</h2>
+                    <ol>
+                        <li>Improved preset structure and recalling, however <em>new preset format is incompatible with older presets</em>
+                        <ul>
+                            <li>Modes may still load
+                            <li>I can add support for old presets upon request
+                            <li>The new preset structure includes versioning which make backwards-compatibility more feasible
+                        </ul>
+                        <li>Basic manual mapping
+                        <li>Basic KBM file export
+                        <li>New Settings menu
+                        <ul>
+                            <li>Reintroduced key color features
+                            <li>Adjacent key placement style
+                            <li>Key highlighting options
+                            <li>Fixed period shifting and transposition
+                            <li>MIDI Device selection for standalone app
+                            <li>Note mapping editor
+                        </ul>        
+                        <li>Simpler and improved GUI
+                        <li>Smoothed window resizing
+                    </ol>
+                    <h2>To do</h2>
+                    <ul>
+                        <li>Allow piano keys to be triggered by computer keyboard keys
+                        <li>Add note names
+                        <li>Add tuning capability (??)
+                        <li>Add preset tags and improve preset browsing and management
+                        <li>Advanced key shape customization
+                        <li>Change keyboard orientation
+                        <li>Graphics shading & other niceties
+                        <li>Different methods of scale creating
+                        <li>More...
+                    </ul>
+                </div> <!--feature end-->
+            </div><!--body end-->
+        </div><!--section end-->
+        <div id="product-sidebar-section" class="section">
+            <div id="product-sidebar-container" class="sticky flex column">
+                <div id="svk-sidebar" class="sidebar flex column content active">
+                    <a id="svk-overview-btn" class="sidebar btn">Overview</a>
+                    <a id="svk-features-btn" class="sidebar btn">Features</a>
+                    <a id="svk-tutorials-btn" class="sidebar btn">Tutorials</a>
+                    <a class="github-link" href="https://www.github.com/vsicurella/SuperVirtualKeyboard" target="_blank">
+                        <img src="assets/github-logo.png">
+                        View source code on GitHub!
+                    </a>
+                    <h1>Downloads</h1>
+                    <!-- <h2>Standard</h2>
+                    <div id="svk-standard-download-container" class="sidebar download flex">
+                        <a href="#" class="download btn"><img src="./assets/win-logo.svg"></a>
+                        <a href="#" class="download btn"><img src="./assets/apple-logo.svg"></a>
+                        <a href="#" class="download btn"><img src="./assets/linux-logo.png"></a>
+                    </div>
+                    <h2>VSTi</h2>
+                    <div id="svk-instrument-download-container" class="sidebar download flex">
+                        <a href="#" class="download btn"><img src="./assets/win-logo.svg"></a>
+                        <a href="#" class="download btn"><img src="./assets/apple-logo.svg"></a>
+                        <a href="#" class="download btn"><img src="./assets/linux-logo.png"></a>
+                    </div>
+                    <h2>Mobile</h2>
+                    <div id="svk-mobile-download-container" class="sidebar download flex">
+                        <a href="#" class="download btn"><img src="./assets/android-logo.svg"></a>
+                        <a href="#" class="download btn"><img src="./assets/ios-logo.png"></a>
+                    </div> -->
+                </div>
+            </div>
         </div>
-        <footer>
-            <p>www.everytone.zone is under major construction. please wear protective ear plugs when near active equipment</p>
-            <span id="update-text">Last update was on<span id="update-date"> March 31st, 2020 </span></span>
-        </footer>
     </div>
+
+
     <script type="text/javascript" src="./index.js"></script>
 </body>
