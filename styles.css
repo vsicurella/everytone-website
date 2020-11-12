@@ -107,6 +107,19 @@ h1 {
     text-align: center;
 }
 
+article {
+    font-size: 1.5vh;
+    margin: 0vh 2vw;   
+    text-align: justify;
+}
+
+article > ul,
+article > ol {
+    margin: 5px 0px;
+    padding: 0px 20px;
+}
+
+
 .body.content {
     font-size: 1.5vh;
     margin: 0px 2vh;
@@ -117,11 +130,6 @@ h1 {
     justify-self: flex-start;
 }
 
-.body > ul,
-.body > ol {
-    margin: 5px 0px;
-    padding: 0px 20px;
-}
 
 .hero {
     margin: 10px 0px;
