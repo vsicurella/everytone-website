@@ -34,6 +34,10 @@ img {
     align-items: center;
 }
 
+.template {
+    display: none;
+}
+
 #sitemap-section {
     width: 25%;
     max-width: 320px;
@@ -53,11 +57,11 @@ img {
     margin: 10px 0px 10px 0px;
 }
 
-.column > a {
+.navlink {
     margin: 5px 0px;
     padding: 10px 0px;
     width: 100%;
-    font-size: 100%;
+    font-size: 1vw;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
     background-color:#555;
@@ -65,14 +69,17 @@ img {
     color: #111;
 }
 
-.column > a:visited {
+a.navlink:hover {
+    background-color: #5c5c5c;
+}
+
+a.navlink:visited {
     color: #111;
 }
 
-.column > a:active {
-    color: #333
+a.navlink.active {
+    background: #666;
 }
-
 
 #site-body-container {
     overflow-y: auto;
@@ -166,22 +173,26 @@ article > ol {
 .download.btn {
     width: auto;
     max-width: 25%;
+    padding: 5px;
     place-self: center;
 }
 
 .download.btn:hover {
     background:#888;
-    padding: 10px;
 }
 
-a.github-link {
+/* #github-link {
     background: inherit;
-    width: 50%;
+    width: 66%;
     font-weight: 600;
-    margin-top: 2vh;
+    padding: 5px;
 }
 
-a.github-link:hover {
+#github-link:hover {
     background:#888;
-    padding: 10px;
 }
+
+#github-link > img {
+    height: 3vh;
+    object-fit: scale-down;
+} */
