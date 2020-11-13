@@ -52,6 +52,16 @@ img {
     top: 0;
 }
 
+#timestamp-container {
+    width: 100%;
+    background: #555;
+    margin-top: 5px;
+    padding: 0.5vh 0vw;
+    font-size: 0.6vw;
+    font-style: italic;
+    text-align: center;
+}
+
 #logo {
     width: 75%;
     margin: 10px 0px 10px 0px;

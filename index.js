@@ -117,4 +117,6 @@ async function setupProductBody(owner, repoName, productCode) {
     }
 }
 
+document.getElementById('timestamp').innerText = new Date(document.lastModified).toDateString()
+
 setupProductBody('vsicurella', 'SuperVirtualKeyboard', 'svk')
